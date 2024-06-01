@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="complain.css">
+    <title>DORM Complaint Portal</title>
+</head>
+
+<body>
+    <div class="content">
+        <header>
+            <button class="button-like-a" onclick="signOut()">Sign Out</button>
+            <h1 id="heading">DORMCARE</h1>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="#complaints">Complaints</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <section id="complaints">
+            <div class="services-section">
+                <h2>File Your Complaint Here</h2>
+                <div class="services-container">
+                    <div class="service-card">
+                        <img src="plumb_cute.jpg" alt="Plumber">
+                        <h3>Plumber</h3>
+                        <a class="button-like-a" href="Plumb_complain.html">Click to complain</a>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="electrician.jpg" alt="Electrician">
+                        <h3>Electrician</h3>
+                        <a class="button-like-a" href="Elect_complain.html">Click to complain</a>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="carpenter.jpg" alt="Carpenter">
+                        <h3>Carpenter</h3>
+                        <a class="button-like-a" href="Carpenter_complain.html">Click to complain</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <h2>What Our Users Say</h2>
+            <div id="testimonial-container">
+                <button onclick="changeTestimonial(-1)" id="prev-testimonial">&#8249;</button>
+                <blockquote class="testimonial" id="user-testimonial">
+                    <p>"I had a plumbing issue in my dorm, and the response was quick and the problem was fixed in no time. Excellent service!"</p>
+                    <cite id="testimonial-author">- Reha Shah</cite>
+                </blockquote>
+                <button onclick="changeTestimonial(1)" id="next-testimonial">&#8250;</button>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section">
+            <h2>About Us</h2>
+            <p>Welcome to the DORM Complaint Portal! We are dedicated to providing a seamless experience for you to report and resolve issues related to carpentry, plumbing, and electrical services within your dormitory. Our team of skilled professionals is committed to ensuring your living space is comfortable and well-maintained.</p>
+            <p>At DORM Complaint Portal, your satisfaction is our priority. We strive to address your concerns promptly and efficiently. Feel free to reach out to us with any questions or feedback - we are here to help!</p>
+        </section>
+        
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! If you have any questions or suggestions, feel free to reach out to us.</p>
+            <p>Email: <a href="mailto:info@dormcomplaints.com">info@dormcomplaints.com</a></p>
+            <p>Phone: +1 (123) 456-7890</p>
+        </section>
+        
+        <section id="faq" class="faq-section">
+            <h2>FAQ</h2>
+            <p>Have questions? Check out our frequently asked questions:</p>
+            
+                <li><strong>Q:</strong> How do I submit a complaint?</li>
+                <p><strong>A:</strong> You can submit a complaint by visiting the "Complaints" section on our portal and selecting the appropriate category (Plumbing, Electrician, or Carpentry).</p>
+                <li><strong>Q:</strong> How can I see the validity and user experience of your site?</li>
+                <p><strong>A:</strong> Use the "Testimonials" section to hear from users about their experiences with our services.</p>
+                <li><strong>Q:</strong> What if my issue is not listed in the provided services?</li>
+                <p><strong>A:</strong> If your issue is not listed, please contact us directly, and we will do our best to assist you.</p>
+            
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="footer-year"></span> DormCare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function signOut() {
+            // Redirect to the login page
+            window.location.href = 'DormCare_login.html';
+        }
+        // Function to handle changing testimonials automatically
+        function autoChangeTestimonial() {
+        const interval = 5000; // 10 seconds
+        setInterval(() => {
+            changeTestimonial(1);
+        }, interval);
+        }
+
+         // Call the function to start automatic testimonial rotation
+        autoChangeTestimonial();
+        // Function to handle changing testimonials
+        function changeTestimonial() {
+            const testimonials = [
+                { text: "I had a plumbing issue in my dorm, and the response was quick and the problem was fixed in no time. Excellent service!", author: "Reha Shah" },
+                { text: "The electrician service was top-notch! They arrived on time and resolved the issue efficiently. Highly recommended.", author: "Shresty Bohra" },
+                { text: "The carpentry service exceeded my expectations. The team was skilled, and the work was completed with precision. Thank you!", author: "Disha Mewada" },
+            ];
+
+            const testimonialElement = document.getElementById('user-testimonial');
+            const testimonialTextElement = testimonialElement.querySelector('p');
+            const authorElement = document.getElementById('testimonial-author');
+
+            // Randomly select a testimonial
+            const randomIndex = Math.floor(Math.random() * testimonials.length);
+            const randomTestimonial = testimonials[randomIndex];
+
+            // Update the testimonial text and author
+            testimonialTextElement.textContent = `"${randomTestimonial.text}"`;
+            authorElement.textContent = ` - ${randomTestimonial.author}`;
+        }
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

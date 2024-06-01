@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Complaints</title>
+    <link rel="stylesheet" href="complaint.css">
+    <style>
+        h1, h2 {
+            text-align: center;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            }
+
+        main {
+            flex: 1;
+            padding-bottom: 5rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <button class="button-like-a" onclick="signOut()">Sign Out</button>
+        <h1 id="heading">DORMCARE</h1>
+    </header>
+    <main>
+    <h1>Registered Complaints</h1>
+    <hr>
+    <h2>Plumber Complaints</h2>
+    <table id="plumber-complaints-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Hostel Block</th>
+                <th>Room Number</th>
+                <th>Issue</th>
+                <th>Contact Number</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="plumber-complaints-list"></tbody>
+    </table>
+
+    <h2>Carpenter Complaints</h2>
+    <table id="carpenter-complaints-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Hostel Block</th>
+                <th>Room Number</th>
+                <th>Issue</th>
+                <th>Contact Number</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="carpenter-complaints-list"></tbody>
+    </table>
+
+    <h2>Electrician Complaints</h2>
+    <table id="electrician-complaints-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Hostel Block</th>
+                <th>Room Number</th>
+                <th>Issue</th>
+                <th>Contact Number</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="electrician-complaints-list"></tbody>
+    </table>
+    </main>
+    <footer>
+        <p>&copy; <span id="footer-year"></span> DormCare. All rights reserved.</p>
+    </footer>
+    <!-- JavaScript file -->
+    <script src="complaints.js"></script>
+</body>
+
+</html> 

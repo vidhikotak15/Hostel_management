@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <style>
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #555;
+            color: white;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+                display: flex;
+                flex-direction: column;
+            }
+        main {
+            flex: 1;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #f8e400;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #b38f00;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="heading">DORMCARE</h1>
+    </header>
+    <main>
+        <h1>Confirmation Page</h1>
+        <p>Please confirm if you want to delete the record.</p>
+        <form id="confirmation-form" action="/confirm-deletion" method="POST" onsubmit="return validateForm()">
+            <input type="hidden" name="token" value="{{ token }}">
+            <label for="confirmation">Are you sure you want to delete the record?</label><br>
+            <input type="radio" id="yes" name="confirmation" value="yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="confirmation" value="no">
+            <label for="no">No</label><br>
+            <button type="submit">Confirm</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; <span id="footer-year"></span> DormCare. All rights reserved.</p>
+    </footer>
+    <script src="complaints.js"></script>
+    <script>
+        function validateForm() {
+        var yesChecked = document.getElementById("yes").checked;
+        var noChecked = document.getElementById("no").checked;
+        if (!yesChecked && !noChecked) {
+            alert("Please select either Yes or No.");
+            return false;
+        }
+        return true;
+    }
+    </script>
+    
+    
+</body>
+
+</html> 

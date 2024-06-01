@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="complaint.css">
+    <title>Plumber Complain</title>
+</head>
+
+<body>
+    <header>
+        <button class="button-like-a" onclick="goBack()">Back to Home</button>
+        <h1 id="heading">DORMCARE</h1>
+    </header>
+    <nav>
+        <h1>Plumber Complaints</h1>
+    </nav>
+    <p>File your complaints here:</p><br>
+    <table id="data-table">
+        <tr>
+            <th>Date</th>
+            <th>Hostel Block</th>
+            <th>Room Number</th>
+            <th>Issue</th>
+            <th>Contact Number</th>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td><input type="date" id="date"></td>
+            <td><input type="text" id="hostel"></td>
+            <td><input type="number" id="room"></td>
+            <td><input type="text" id="issue"></td>
+            <td><input type="number" id="contact"></td>
+            <td><input type="text" id="name"></td>
+        </tr>
+    </table>
+    <div class="buttonn">
+        <button class="button-like-a" onclick="saveData()">Register Complaint</button>
+    </div>
+    <div class="message">
+        <p>If no more complaints, click on Submit; otherwise, add your complaints to the table and click on Register
+            Complaint button.</p>
+    </div>
+    <div class="buttonn">
+        <a class="button-like-a" href="Thank_you.html">Submit</a>
+    </div>
+    <footer>
+        <p>&copy; <span id="footer-year"></span> DormCare. All rights reserved.</p>
+    </footer>
+    <script>
+
+        function goBack() {
+            window.location.href = "Complaints.html";
+        }
+
+        function validateForm() {
+            const date = document.getElementById("date").value;
+            const hostel = document.getElementById("hostel").value;
+            const room = document.getElementById("room").value;
+            const issue = document.getElementById("issue").value;
+            const contact = document.getElementById("contact").value;
+            const name = document.getElementById("name").value;
+            // Validate each field
+            if (date === "" || hostel === "" || room === "" || issue === "" || contact === "" || name === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // Validate phone number
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(contact)) {
+                alert("Phone number must be 10 digits");
+                return false;
+            }
+
+            return true;
+        }
+
+        function saveData() {
+            if (!validateForm()) {
+                return;
+            }
+
+            const date = document.getElementById("date").value;
+            const hostel = document.getElementById("hostel").value;
+            const room = document.getElementById("room").value;
+            const issue = document.getElementById("issue").value;
+            const contact = document.getElementById("contact").value;
+            const name = document.getElementById("name").value;
+
+            fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    date: date,
+                    hostel: hostel,
+                    room: room,
+                    issue: issue,
+                    contact: contact,
+                    name: name
+                })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                })
+                .then(data => {
+                    // alert(data.msg);
+                    document.getElementById("date").value = "";
+                    document.getElementById("hostel").value = "";
+                    document.getElementById("room").value = "";
+                    document.getElementById("issue").value = "";
+                    document.getElementById("contact").value = "";
+                    document.getElementById("name").value = "";
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+
+    </script>
+</body>
+
+</html>

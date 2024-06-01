@@ -1,0 +1,169 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    /* Center the navigation items */
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f8e400;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+.services-section {
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.service-card {
+    color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    background-color: #333;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* Add a slight border-radius */
+}
+
+.service-card img {
+    width: 80%;
+    height: 70%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.service-card h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.button-like-a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f8e400;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.button-like-a:hover {
+    background-color: #b38f00;
+}
+
+.testimonials-section {
+    text-align: center;
+    background-color: #f8e400;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #333;
+    border-radius: 5px;
+}
+
+#testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+blockquote {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+cite {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Adjust padding for the FAQ section */
+.faq-section {
+    padding-bottom: 50px;
+
+}
+
+/* Center-align content in "About Us," "Contact Us," and "FAQ" sections */
+.about-section,
+.contact-section,
+.faq-section {
+    text-align: center;
+}
+
+.contact-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #333;
+    margin: 20px 0;
+}

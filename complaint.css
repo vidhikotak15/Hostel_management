@@ -1,0 +1,152 @@
+/* complaint.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    /* Light grey background */
+    color: #333;
+    /* Dark grey text color */
+}
+
+h1,
+p {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+    text-align: center;
+}
+
+nav h1 {
+    margin: 0;
+    color: #fff;
+    /* White text color for navigation */
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 20px auto;
+    background-color: #fff;
+    /* White background for the table */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle box shadow */
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+    /* Light grey border */
+    text-align: center;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+th {
+    background-color: #4CAF50;
+    /* Dark green background for table headers */
+    color: #fff;
+    /* White text color for table headers */
+}
+
+.buttonn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Center the message text */
+.message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Center the Submit button */
+.buttonn:last-of-type {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-like-a {
+    display: inline-block;
+    background-color: #f8e400;
+    /* yellow button background */
+    color: #000;
+    /* black text color */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+
+}
+
+.button-like-a:hover {
+    background-color: #b38f00;
+}
+
+.button-like-a,
+button {
+    margin-right: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    table {
+        width: 90%;
+    }
+}
+
+.instruction {
+    text-align: center;
+    margin-top: 10px;
+    color: #888;
+    /* Light grey text color */
+    font-style: italic;
+}
+
+.button-like-a {
+    background-color: #f8e400;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.button-like-a:hover {
+    background-color: #b38f00;
+}
